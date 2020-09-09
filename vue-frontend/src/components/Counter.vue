@@ -1,13 +1,27 @@
 <template>
-  <p>I'm a Counter!</p>
+<div>
+  <p></p>
+  <p>Current episode seen: {{ episode_seen }}</p>
+  <button @click="increase">Add one</button>
+  <button @click="decrease">Minus one</button>
+</div>
 </template>
 
 <script>
 export default {
-  data() {
-    return {
-      count: 0
-    };
+  props: {
+    episode_seen: {
+      type: Number,
+      default: 0
+    }
+  },
+  methods: {
+    increase: function() {
+      this.episode_seen += 1
+    },
+    decrease: function() {
+      this.episode_seen -= 1
+    }
   }
 };
 </script>
