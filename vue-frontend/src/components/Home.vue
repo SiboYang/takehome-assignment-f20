@@ -4,9 +4,8 @@
     <Instructions :complete="true"/>
     
     <!-- PART 4: Modify the Show component to accept all of these props -->
-
     <div id="addShow">
-      <input v-model="name" placeholder="Enter show name">
+      <input v-model="name"  @keyup.enter="create_show()" placeholder="Enter show name">
       <button @click="create_show()" >Add show</button>
       <hr> 
     </div>
@@ -42,7 +41,7 @@ export default {
         { id: 2, name: "Naruto", episodes_seen: 220 },
         { id: 3, name: "Black Mirror", episodes_seen: 3 }
       ],
-      name: ''
+      name: '',
     };
   },
   methods: {
@@ -52,7 +51,6 @@ export default {
         this.shows.push({id: new_id, name: this.name, episodes_seen: 0});
         this.name = '';
       }
-
     }
   }
 };
